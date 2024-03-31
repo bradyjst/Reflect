@@ -11,7 +11,7 @@ export const Cover: React.FC<CoverProps> = () => {
 					<h2 className="imprinted-text-h2">Reflect</h2>
 				</div>
 				<div className="cover-middle">
-					<button></button>
+					<button>Open</button>
 				</div>
 				<div className="cover-bottom">
 					<input className="cover-input" type="text" placeholder="Author" />
