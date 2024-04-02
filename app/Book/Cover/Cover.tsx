@@ -5,8 +5,8 @@ interface CoverProps {}
 
 export const Cover: React.FC<CoverProps> = () => {
 	return (
-		<div className="cover-container">
-			<div className="cover">
+		<div className="cover">
+			<div className="image-container">
 				<div className="cover-top">
 					<h2 className="imprinted-text-h2">Reflect</h2>
 				</div>
