@@ -1,84 +1,105 @@
-/* eslint-disable react/display-name */
-import React, { forwardRef } from "react";
-import HTMLFlipBook from "react-pageflip";
+import React, { useState } from "react";
 import "./Container.css";
 import { Cover } from "../Cover/Cover";
+import { BookIndex } from "../BookIndex/BookIndex";
+import { Info } from "../Info/Info";
+import { Journal } from "../Journal/Journal";
 
 interface ContainerProps {}
 
-interface PageProps {
-	children?: React.ReactNode;
-	number?: number; // Assuming `number` is a prop you pass to `Page`
-}
-
-const PageCover = forwardRef<HTMLDivElement, PageProps>((props, ref) => {
-	return (
-		<div ref={ref} data-density="hard">
-			{props.children}
-		</div>
-	);
-});
-
-const Page = forwardRef<HTMLDivElement, PageProps>((props, ref) => {
-	return (
-		<div ref={ref} data-density="soft">
-			{props.children}
-		</div>
-	);
-});
-
 export const Container: React.FC<ContainerProps> = () => {
+	const [isOpen, setIsOpen] = useState(false);
+	const [isChosen, setIsChosen] = useState(false);
+	const [visible, setVisible] = useState(false);
+
+	const openBook = () => {
+		setIsOpen(!isOpen);
+		setVisible(true);
+	};
+
+	const closeBook = () => {
+		setIsOpen(false);
+		setIsChosen(false);
+		setTimeout(() => {
+			setVisible(false);
+		}, 400);
+	};
+
+	const returnToIndex = () => {
+		setIsChosen(false);
+	};
+
+	console.log("open", isOpen);
+	console.log("chosen", isChosen);
+	console.log("visible", visible);
+
+	const bookStyle: React.CSSProperties = {
+		position: "absolute",
+		left: isOpen ? "100%" : "50%",
+		transform: isOpen ? "translateX(-121%)" : "translateX(-75%)",
+		transition: "left 1s ease, transform 1s ease",
+	};
+
+	const coverPageStyle: React.CSSProperties = {
+		transform: isOpen ? "rotateY(-180deg)" : "rotateY(0deg)",
+		transition: "transform 1s",
+		transformStyle: "preserve-3d",
+		transformOrigin: "left",
+	};
+
+	const contentSelected: React.CSSProperties = {
+		transform: isChosen ? "rotateY(-180deg)" : "rotateY(0deg)",
+		zIndex: isChosen ? "2" : "-1",
+		transition: "transform 1s",
+		transformStyle: "preserve-3d",
+		transformOrigin: "left",
+	};
+
+	const contentSelectedFully: React.CSSProperties = {
+		transform: isChosen ? "rotateY(0deg)" : "rotateY(-180deg)",
+		zIndex: isChosen ? "-1" : "2",
+		transition: "transform 1s",
+		transformStyle: "preserve-3d",
+		transformOrigin: "right",
+	};
+
 	return (
 		<div className="container">
-			<HTMLFlipBook
-				width={300}
-				height={500}
-				size="stretch"
-				minWidth={400}
-				maxWidth={1000}
-				minHeight={600}
-				maxHeight={1000}
-				maxShadowOpacity={0.5}
-				showCover={true}
-				mobileScrollSupport={true}
-				onFlip={() => {}}
-				onChangeOrientation={() => {}}
-				onChangeState={() => {}}
-				className="container"
-				style={{}}
-				startPage={1}
-				drawShadow={true}
-				flippingTime={1000}
-				usePortrait={false}
-				startZIndex={0}
-				autoSize={false}
-				clickEventForward={true}
-				useMouseEvents={true}
-				swipeDistance={0}
-				showPageCorners={true}
-				disableFlipByClick={false}
+			<div
+				className="book"
+				style={bookStyle}
+				tabIndex={0}
+				role="button"
+				aria-pressed={isOpen}
 			>
-				<PageCover>
-					{/* <div className="myfakepages"> */}
-					<Cover />
-					{/* </div> */}
-				</PageCover>
-				<Page>
-					<div className="myfakepages" style={{ backgroundColor: "grey" }}>
-						this is page 2
+				<div className="coverpage" style={coverPageStyle}>
+					<div className="page-front">
+						<Cover {...{ openBook }} />
 					</div>
-				</Page>
-				<Page>
-					<div className="myfakepages" style={{ backgroundColor: "blue" }}>
-						this is page 3
+					<div className="page-back">
+						<BookIndex {...{ isChosen, setIsChosen }} />
 					</div>
-				</Page>
-				<Page>
-					<div className="myfakepages" style={{ backgroundColor: "green" }}>
-						this is page 4
+				</div>
+
+				{visible && (
+					<div className="page-open" style={contentSelected}>
+						<div className="page-front">
+							<Info {...{ closeBook }} />
+						</div>
+						{isChosen && (
+							<div className="page-back" style={contentSelectedFully}>
+								<Journal {...{ returnToIndex }} />
+							</div>
+						)}
 					</div>
-				</Page>
-			</HTMLFlipBook>
+				)}
+				{visible && isChosen && (
+					<div className="page-open">
+						<div className="page-back"></div>
+						<Info {...{ closeBook }} />
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };

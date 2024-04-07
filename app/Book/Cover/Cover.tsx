@@ -1,9 +1,11 @@
 import React from "react";
 import "./Cover.css";
 
-interface CoverProps {}
+interface CoverProps {
+	openBook: () => void;
+}
 
-export const Cover: React.FC<CoverProps> = () => {
+export const Cover: React.FC<CoverProps> = ({ openBook }) => {
 	return (
 		<div className="cover">
 			<div className="image-container">
@@ -11,7 +13,7 @@ export const Cover: React.FC<CoverProps> = () => {
 					<h2 className="imprinted-text-h2">Reflect</h2>
 				</div>
 				<div className="cover-middle">
-					<button>Open</button>
+					<button onClick={() => openBook()}>Open</button>
 				</div>
 				<div className="cover-bottom">
 					<input className="cover-input" type="text" placeholder="Author" />
