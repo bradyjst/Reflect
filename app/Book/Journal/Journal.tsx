@@ -8,7 +8,10 @@ interface JournalProps {
 export const Journal: React.FC<JournalProps> = ({ returnToIndex }) => {
 	return (
 		<div className="journal-container">
-			<button onClick={() => returnToIndex()}>go back</button>
+			<button style={{ marginLeft: "50px" }} onClick={() => returnToIndex()}>
+				go back
+			</button>
+			JOURNAL
 		</div>
 	);
 };

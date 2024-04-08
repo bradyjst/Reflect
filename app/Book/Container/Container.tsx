@@ -34,9 +34,6 @@ export const Container: React.FC<ContainerProps> = () => {
 	const closeBook = () => {
 		setIsOpen(false);
 		setIsChosen(false);
-		setTimeout(() => {
-			setVisible(false);
-		}, 400);
 	};
 
 	const returnToIndex = () => {
@@ -51,12 +48,13 @@ export const Container: React.FC<ContainerProps> = () => {
 		position: "absolute",
 		left: isOpen ? "100%" : "50%",
 		transform: isOpen ? "translateX(-121%)" : "translateX(-75%)",
-		transition: "left 1s ease, transform 1s ease",
+		transition: "left 1.5s ease, transform 1.5s ease",
 	};
 
 	const PageStyle: React.CSSProperties = {
 		transform: isOpen ? "rotateY(-180deg)" : "rotateY(0deg)",
-		transition: "transform 1s",
+
+		transition: "transform 1.5s",
 		transformStyle: "preserve-3d",
 		transformOrigin: "left",
 		zIndex: zIndex,
@@ -65,7 +63,7 @@ export const Container: React.FC<ContainerProps> = () => {
 	const PageStyle2: React.CSSProperties = {
 		position: "absolute",
 		transform: isChosen ? "rotateY(-180deg)" : "rotateY(0deg)",
-		transition: "transform 1s",
+		transition: "transform 1.5s",
 		transformStyle: "preserve-3d",
 		transformOrigin: "left",
 	};
@@ -85,11 +83,12 @@ export const Container: React.FC<ContainerProps> = () => {
 				aria-pressed={isOpen}
 			>
 				<div className="page" style={PageStyle}>
-					<div className="page-front">
+					<div className="page-front-cover">
 						<Cover {...{ openBook }} />
 					</div>
+
 					<div className="page-back">
-						<BookIndex {...{ isChosen, setIsChosen }} />
+						<BookIndex {...{ closeBook, isChosen, setIsChosen }} />
 					</div>
 				</div>
 
@@ -107,9 +106,8 @@ export const Container: React.FC<ContainerProps> = () => {
 				</div>
 				{visible && (
 					<div className="page" style={PageStyle3}>
-						<div className="page-front">
-							<JStats />
-						</div>
+						<JStats />
+						<div className="page-back-cover"></div>
 					</div>
 				)}
 			</div>

@@ -1,5 +1,37 @@
 .info-container {
+	background: linear-gradient(
+		270deg,
+		rgba(225, 225, 221, 1) 95%,
+		rgba(150, 150, 150, 1) 100%
+	);
 	width: 100%;
-	height: 90%;
-	background-color: aqua;
+	height: 100%;
+	border-top: 2px outset #838383;
+	border-right: 2px groove #ddd;
+	border-bottom: 3px groove #838383;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+	border-radius: 2px;
+	display: flex;
+
+	flex-direction: column;
+}
+
+.info-page {
+	width: 85%; /* Adjust the width as needed */
+	height: 80%; /* Adjust the height as needed */
+	background-color: rgba(225, 225, 221, 1); /* Base color for the page */
+	background-image: linear-gradient(
+		to bottom,
+		transparent 90%,
+		#373737 95%,
+		transparent 90%
+	);
+	background-size: 100% 30px; /* Adjust the spacing of the lines */
+	padding: 30px; /* Space for content */
+	padding-left: 10px;
+	margin-left: 3em;
+	box-sizing: border-box;
+	flex-direction: column;
+	justify-content: left;
+	display: flex;
 }
