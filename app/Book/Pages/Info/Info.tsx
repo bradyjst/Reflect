@@ -1,6 +1,6 @@
 import React from "react";
 import "./Info.css";
-import { Header } from "../PageComponents/Header/Header";
+import { Header } from "../../PageComponents/Header/Header";
 
 interface InfoProps {}
 

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./Container.css";
 import { Cover } from "../Cover/Cover";
-import { BookIndex } from "../BookIndex/BookIndex";
-import { Info } from "../Info/Info";
-import { Journal } from "../Journal/Journal";
-import { JStats } from "../Journal/Stats/JStats";
+import { BookIndex } from "../Pages/BookIndex/BookIndex";
+import { Info } from "../Pages/Info/Info";
+import { Journal } from "../Pages/Journal/Journal";
+import { JStats } from "../Pages/Journal/Stats/JStats";
 
 interface ContainerProps {}
 

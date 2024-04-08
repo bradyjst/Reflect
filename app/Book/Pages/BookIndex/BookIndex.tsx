@@ -1,6 +1,6 @@
 import React from "react";
 import "./BookIndex.css";
-import { Header } from "../PageComponents/Header/Header";
+import { Header } from "../../PageComponents/Header/Header";
 
 interface BookIndexProps {
 	closeBook: () => void;
