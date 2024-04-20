@@ -38,6 +38,8 @@
 
 .journal-button {
 	border: none;
+	display: flex;
+	justify-content: flex-start;
 	background-color: transparent;
 	font-size: large;
 	cursor: pointer;

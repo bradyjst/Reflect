@@ -29,7 +29,7 @@ const Ripple: React.FC<RippleProps> = ({ children }) => {
 
 		setTimeout(() => {
 			setRipples((prevRipples) => prevRipples.slice(1));
-		}, 600); // assuming the animation duration is 600ms
+		}, 600);
 	};
 
 	return (

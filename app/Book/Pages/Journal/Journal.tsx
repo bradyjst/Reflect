@@ -11,7 +11,6 @@ export const Journal: React.FC<JournalProps> = ({ returnToIndex }) => {
 			<button style={{ marginLeft: "50px" }} onClick={() => returnToIndex()}>
 				go back
 			</button>
-			JOURNAL
 		</div>
 	);
 };

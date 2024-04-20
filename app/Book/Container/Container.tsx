@@ -5,6 +5,7 @@ import { BookIndex } from "../Pages/BookIndex/BookIndex";
 import { Info } from "../Pages/Info/Info";
 import { Journal } from "../Pages/Journal/Journal";
 import { JStats } from "../Pages/Journal/Stats/JStats";
+import { Finance } from "../Pages/Finance/Finance";
 
 interface ContainerProps {}
 
@@ -13,6 +14,7 @@ export const Container: React.FC<ContainerProps> = () => {
 	const [isChosen, setIsChosen] = useState(false);
 	const [visible, setVisible] = useState(false);
 	const [zIndex, setZIndex] = useState("2");
+	const [page, setPage] = useState(0);
 
 	useEffect(() => {
 		let timerId: ReturnType<typeof setTimeout>;
@@ -88,7 +90,7 @@ export const Container: React.FC<ContainerProps> = () => {
 					</div>
 
 					<div className="page-back">
-						<BookIndex {...{ closeBook, isChosen, setIsChosen }} />
+						<BookIndex {...{ closeBook, isChosen, setIsChosen, setPage }} />
 					</div>
 				</div>
 
@@ -98,9 +100,16 @@ export const Container: React.FC<ContainerProps> = () => {
 							<div className="page-front">
 								<Info {...{ closeBook }} />
 							</div>
-							<div className="page-back">
-								<Journal {...{ returnToIndex }} />
-							</div>
+							{page === 1 && (
+								<div className="page-back">
+									<Journal {...{ returnToIndex }} />
+								</div>
+							)}
+							{page === 2 && (
+								<div className="page-back">
+									<Finance {...{ returnToIndex }} />
+								</div>
+							)}
 						</>
 					)}
 				</div>

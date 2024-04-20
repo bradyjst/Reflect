@@ -4,5 +4,5 @@ import "./JStats.css";
 interface JStatsProps {}
 
 export const JStats: React.FC<JStatsProps> = () => {
-	return <div className="jstats-container"></div>;
+	return <div className="jstats-container">hi</div>;
 };
