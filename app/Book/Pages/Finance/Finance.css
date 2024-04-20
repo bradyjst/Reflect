@@ -18,6 +18,7 @@
 
 .finance-budget-container {
 	padding-left: 2em;
+	overflow-y: scroll;
 }
 
 .finance-backbutton {

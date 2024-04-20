@@ -1,0 +1,28 @@
+.income-input {
+	background-color: transparent;
+	margin: 1px;
+	border: none;
+}
+
+.income-input:focus {
+	background-color: transparent;
+	margin: 1px;
+	border: none;
+	outline: none;
+}
+.income-input::-webkit-inner-spin-button,
+.income-input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.income-group {
+	display: flex;
+	width: 100%;
+}
+
+.income-form {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+}

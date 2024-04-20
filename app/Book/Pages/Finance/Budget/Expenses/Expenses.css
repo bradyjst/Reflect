@@ -1,0 +1,28 @@
+.expense-input {
+	background-color: transparent;
+	margin: 1px;
+	border: none;
+}
+
+.expense-input:focus {
+	background-color: transparent;
+	margin: 1px;
+	border: none;
+	outline: none;
+}
+.expense-input::-webkit-inner-spin-button,
+.expense-input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.expense-group {
+	display: flex;
+	width: 100%;
+}
+
+.expense-form {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+}
