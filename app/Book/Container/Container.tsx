@@ -6,6 +6,7 @@ import { Info } from "../Pages/Info/Info";
 import { Journal } from "../Pages/Journal/Journal";
 import { JStats } from "../Pages/Journal/Stats/JStats";
 import { Finance } from "../Pages/Finance/Finance";
+import { FStats } from "../Pages/Finance/Stats/FStats";
 
 interface ContainerProps {}
 
@@ -113,9 +114,20 @@ export const Container: React.FC<ContainerProps> = () => {
 						</>
 					)}
 				</div>
-				{visible && (
+				{page === 0 && (
+					<div className="page" style={PageStyle3}>
+						<div className="page-back-cover"></div>
+					</div>
+				)}
+				{page === 1 && (
 					<div className="page" style={PageStyle3}>
 						<JStats />
+						<div className="page-back-cover"></div>
+					</div>
+				)}
+				{page === 2 && (
+					<div className="page" style={PageStyle3}>
+						<FStats />
 						<div className="page-back-cover"></div>
 					</div>
 				)}

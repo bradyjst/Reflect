@@ -17,8 +17,10 @@
 }
 
 .finance-budget-container {
-	padding-left: 2em;
+	margin-left: 2em;
+	width: 80%;
 	overflow-y: scroll;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .finance-backbutton {

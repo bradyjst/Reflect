@@ -12,8 +12,8 @@ export const Finance: React.FC<FinanceProps> = ({ returnToIndex }) => {
 	return (
 		<div className="finance-container">
 			<Header title="Finances" />
+			<h2 style={{ marginLeft: "2em" }}>Budget</h2>
 			<div className="finance-budget-container">
-				<h2>Budget</h2>
 				<Budget />
 			</div>
 			<button
