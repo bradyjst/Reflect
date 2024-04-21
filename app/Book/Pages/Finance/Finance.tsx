@@ -16,12 +16,8 @@ export const Finance: React.FC<FinanceProps> = ({ returnToIndex }) => {
 			<div className="finance-budget-container">
 				<Budget />
 			</div>
-			<button
-				style={{ marginLeft: "2em" }}
-				className="finance-backbutton"
-				onClick={() => returnToIndex()}
-			>
-				return to index
+			<button className="finance-backbutton" onClick={() => returnToIndex()}>
+				Return to Index
 			</button>
 			<Footer />
 		</div>

@@ -25,6 +25,10 @@
 
 .finance-backbutton {
 	margin-top: 10px;
-	width: 50px;
+	margin-left: 2em;
+	width: 10em;
 	height: 50px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
 }

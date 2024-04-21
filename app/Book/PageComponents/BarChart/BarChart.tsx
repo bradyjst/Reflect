@@ -1,11 +1,12 @@
 import React from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import {
 	Chart as ChartJS,
 	CategoryScale,
 	LinearScale,
 	PointElement,
 	LineElement,
+	BarElement,
 	Title,
 	Tooltip,
 	Legend,
@@ -16,6 +17,7 @@ ChartJS.register(
 	CategoryScale,
 	LinearScale,
 	PointElement,
+	BarElement,
 	LineElement,
 	ArcElement, // Used for pie, doughnut charts
 	Title,
@@ -33,10 +35,10 @@ interface LineChartProps {
 	};
 }
 
-export const LineChart: React.FC<LineChartProps> = ({ incomeData }) => {
+export const BarChart: React.FC<LineChartProps> = ({ incomeData }) => {
 	return (
 		<div>
-			<Line data={incomeData} />
+			<Bar data={incomeData} />
 		</div>
 	);
 };

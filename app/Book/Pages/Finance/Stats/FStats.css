@@ -16,5 +16,13 @@
 
 .fstats-linechart-container {
 	width: 80%;
+	height: 30%;
 	padding-left: 2em;
+}
+
+.fstats-piechart-container {
+	width: 90%;
+	height: 70%;
+	padding-left: 2em;
+	margin-top: 2em;
 }
