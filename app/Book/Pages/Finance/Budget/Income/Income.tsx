@@ -25,6 +25,25 @@ export const Income: React.FC<IncomeProps> = () => {
 			[key]: value,
 		}));
 	};
+
+	const handleSubmit = async (event: { preventDefault: () => void }) => {
+		event.preventDefault(); // Prevent default form submission behavior
+		try {
+			const response = await fetch("http://localhost:8080/submit-finance", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(income),
+			});
+			const data = await response.text(); // or response.json() if response is JSON
+			console.log(data);
+			alert("Income data submitted successfully!");
+		} catch (error) {
+			console.error("Error submitting income data:", error);
+			alert("Failed to submit income data.");
+		}
+	};
 	return (
 		<form className="income-form">
 			<h5>Monthly Income = ${num1 + num2 + num3} </h5>
@@ -58,6 +77,13 @@ export const Income: React.FC<IncomeProps> = () => {
 					onChange={(e) => handleChange("income3", e.target.value)}
 				/>
 			</div>
+			<button
+				onClick={(e) => {
+					handleSubmit(e);
+				}}
+			>
+				Update Income
+			</button>
 		</form>
 	);
 };

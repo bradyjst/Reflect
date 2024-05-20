@@ -11,6 +11,7 @@ import { FStats } from "../Pages/Finance/Stats/FStats";
 interface ContainerProps {}
 
 export const Container: React.FC<ContainerProps> = () => {
+	const [login, setLogin] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isChosen, setIsChosen] = useState(false);
 	const [visible, setVisible] = useState(false);
@@ -54,9 +55,18 @@ export const Container: React.FC<ContainerProps> = () => {
 		transition: "left 1.5s ease, transform 1.5s ease",
 	};
 
+	const bookmarkAnimate: React.CSSProperties = {
+		transform: login ? "translateY(-150%)" : "translateY(0%)",
+		transition: "left 0.5s ease, transform 0.5s ease",
+	};
+
+	const modalAnimate: React.CSSProperties = {
+		transform: login ? "translateY(0%)" : "translateY(-150%)",
+		transition: "transform 1s cubic-bezier(0.55, 0.055, 0.675, 0.19)",
+	};
+
 	const PageStyle: React.CSSProperties = {
 		transform: isOpen ? "rotateY(-180deg)" : "rotateY(0deg)",
-
 		transition: "transform 1.5s",
 		transformStyle: "preserve-3d",
 		transformOrigin: "left",
@@ -78,6 +88,8 @@ export const Container: React.FC<ContainerProps> = () => {
 
 	return (
 		<div className="container">
+			<div style={modalAnimate} className="login-modal"></div>
+			{login && <div className="modal-background"></div>}
 			<div
 				className="book"
 				style={bookStyle}
@@ -89,6 +101,15 @@ export const Container: React.FC<ContainerProps> = () => {
 					<div className="page-front-cover">
 						<Cover {...{ openBook }} />
 					</div>
+					<button
+						onClick={() => {
+							setLogin(!login);
+						}}
+						style={bookmarkAnimate}
+						className="login-button"
+					>
+						Log In
+					</button>
 
 					<div className="page-back">
 						<BookIndex {...{ closeBook, isChosen, setIsChosen, setPage }} />

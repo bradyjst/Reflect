@@ -8,17 +8,13 @@ interface CoverProps {
 
 export const Cover: React.FC<CoverProps> = ({ openBook }) => {
 	return (
-		<div className="cover">
-			<div className="cover-top">
-				<h2 className="imprinted-text-h2">Reflect</h2>
+		<>
+			<div className="cover">
+				<div className="cover-top">
+					<h2 className="imprinted-text-h2">Reflect</h2>
+					<button onClick={() => openBook()}>Open</button>
+				</div>
 			</div>
-			<div className="cover-middle">
-				<button onClick={() => openBook()}>Open</button>
-			</div>
-			<div className="cover-bottom">
-				<input className="cover-input" type="text" placeholder="Author" />
-				<input className="cover-input" type="password" placeholder="Key" />
-			</div>
-		</div>
+		</>
 	);
 };
