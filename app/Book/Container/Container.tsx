@@ -7,11 +7,15 @@ import { Journal } from "../Pages/Journal/Journal";
 import { JStats } from "../Pages/Journal/Stats/JStats";
 import { Finance } from "../Pages/Finance/Finance";
 import { FStats } from "../Pages/Finance/Stats/FStats";
+import { Login } from "../Cover/Login/Login";
+import { Signup } from "../Cover/Signup/Signup";
 
 interface ContainerProps {}
 
 export const Container: React.FC<ContainerProps> = () => {
 	const [login, setLogin] = useState(false);
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [signup, setSignup] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isChosen, setIsChosen] = useState(false);
 	const [visible, setVisible] = useState(false);
@@ -62,7 +66,7 @@ export const Container: React.FC<ContainerProps> = () => {
 
 	const modalAnimate: React.CSSProperties = {
 		transform: login ? "translateY(0%)" : "translateY(-150%)",
-		transition: "transform 1s cubic-bezier(0.55, 0.055, 0.675, 0.19)",
+		transition: "transform 1s cubic-bezier(0.55, 0.055, 0.675, 0.7)",
 	};
 
 	const PageStyle: React.CSSProperties = {
@@ -88,7 +92,13 @@ export const Container: React.FC<ContainerProps> = () => {
 
 	return (
 		<div className="container">
-			<div style={modalAnimate} className="login-modal"></div>
+			<div style={modalAnimate} className="container-login-modal">
+				{signup ? (
+					<Signup {...{ setSignup }} />
+				) : (
+					<Login {...{ openBook, setLogin, login, setIsLoggedIn, setSignup }} />
+				)}
+			</div>
 			{login && <div className="modal-background"></div>}
 			<div
 				className="book"
@@ -101,18 +111,22 @@ export const Container: React.FC<ContainerProps> = () => {
 					<div className="page-front-cover">
 						<Cover {...{ openBook }} />
 					</div>
-					<button
-						onClick={() => {
-							setLogin(!login);
-						}}
-						style={bookmarkAnimate}
-						className="login-button"
-					>
-						Log In
-					</button>
+					{!isLoggedIn && (
+						<button
+							onClick={() => {
+								setLogin(!login);
+							}}
+							style={bookmarkAnimate}
+							className="login-button"
+						>
+							Log In
+						</button>
+					)}
 
 					<div className="page-back">
-						<BookIndex {...{ closeBook, isChosen, setIsChosen, setPage }} />
+						<BookIndex
+							{...{ closeBook, isChosen, setIsChosen, setPage, setIsLoggedIn }}
+						/>
 					</div>
 				</div>
 

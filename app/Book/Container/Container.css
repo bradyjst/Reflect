@@ -33,17 +33,21 @@
 	bottom: 15%;
 	box-shadow: -15px 15px 15px 5px rgba(0, 0, 0, 0.3);
 	z-index: -1;
+	backface-visibility: hidden;
 }
 
-.login-modal {
+.container-login-modal {
 	position: absolute;
-	background-color: red;
-	width: 50%;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20%;
 	height: 90%;
 	transform: translateY(-150%);
 	border-radius: 10px;
 	z-index: 15;
-	left: 25%;
+	left: 41%;
 }
 
 .modal-background {

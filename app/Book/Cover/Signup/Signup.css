@@ -1,0 +1,34 @@
+.signup-container {
+	display: flex;
+	background-color: blue;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 90%;
+	border-radius: 10px;
+}
+
+.signup-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: blue;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	flex-direction: column;
+}
+
+.signup-input {
+	margin-bottom: 10px;
+}
+
+.signup-button {
+	background-color: transparent;
+	border: none;
+}
+
+.submit {
+	background-color: transparent;
+	border: none;
+}

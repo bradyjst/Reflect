@@ -7,6 +7,7 @@ interface BookIndexProps {
 	closeBook: () => void;
 	setIsChosen: (arg: boolean) => void;
 	setPage: (arg: number) => void;
+	setIsLoggedIn: (loggedInState: boolean) => void;
 }
 
 export const BookIndex: React.FC<BookIndexProps> = ({
@@ -14,6 +15,7 @@ export const BookIndex: React.FC<BookIndexProps> = ({
 	isChosen,
 	closeBook,
 	setPage,
+	setIsLoggedIn,
 }) => {
 	return (
 		<div className="index-container">
@@ -42,6 +44,7 @@ export const BookIndex: React.FC<BookIndexProps> = ({
 					className="journal-button"
 					onClick={() => {
 						closeBook();
+						setIsLoggedIn(false);
 					}}
 				>
 					Log out

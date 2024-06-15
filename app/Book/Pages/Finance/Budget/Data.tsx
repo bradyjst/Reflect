@@ -1,15 +1,15 @@
 export const Income = [
 	{
 		id: "Brady's Income",
-		income: 5000,
+		income: 8000,
 	},
 	{
 		id: "Sarah's Income",
-		income: 5000,
+		income: 6000,
 	},
 	{
-		id: "Fake Income",
-		income: 200,
+		id: "Investment Income",
+		income: 2000,
 	},
 ];
 
