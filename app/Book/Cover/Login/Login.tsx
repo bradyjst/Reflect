@@ -46,6 +46,9 @@ export const Login: React.FC<LoginProps> = ({
 				openBook();
 				setIsLoggedIn(true);
 				setLogin(false);
+				const data = await response.json();
+				console.log(data.token);
+				localStorage.setItem("token", data.token);
 			} else {
 				const errorData = await response.text();
 				setError("Error logging in: " + errorData);
@@ -75,6 +78,7 @@ export const Login: React.FC<LoginProps> = ({
 				<input
 					className="login-input"
 					placeholder="password"
+					type="password"
 					name="password"
 					value={info.password}
 					onChange={(e) => setInfo({ ...info, password: e.target.value })}

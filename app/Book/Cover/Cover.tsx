@@ -6,13 +6,12 @@ interface CoverProps {
 	openBook: () => void;
 }
 
-export const Cover: React.FC<CoverProps> = ({ openBook }) => {
+export const Cover: React.FC<CoverProps> = () => {
 	return (
 		<>
 			<div className="cover">
 				<div className="cover-top">
 					<h2 className="imprinted-text-h2">Reflect</h2>
-					<button onClick={() => openBook()}>Open</button>
 				</div>
 			</div>
 		</>

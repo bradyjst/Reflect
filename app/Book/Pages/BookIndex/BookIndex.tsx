@@ -17,6 +17,12 @@ export const BookIndex: React.FC<BookIndexProps> = ({
 	setPage,
 	setIsLoggedIn,
 }) => {
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+		closeBook();
+		setIsLoggedIn(false);
+	};
+
 	return (
 		<div className="index-container">
 			<Header title="Index" />
@@ -40,13 +46,7 @@ export const BookIndex: React.FC<BookIndexProps> = ({
 				>
 					Finances
 				</button>
-				<button
-					className="journal-button"
-					onClick={() => {
-						closeBook();
-						setIsLoggedIn(false);
-					}}
-				>
+				<button className="journal-button" onClick={() => handleLogout()}>
 					Log out
 				</button>
 			</div>
