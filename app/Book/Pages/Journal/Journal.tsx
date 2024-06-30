@@ -16,25 +16,42 @@ export const Journal: React.FC<JournalProps> = ({ returnToIndex }) => {
 					<div className="mood-container">
 						<button className="mood-button">
 							<img
-								className="mood-button"
+								style={{ transform: "scale(1.25)" }}
+								className="mood-img"
 								src="/public/emotions/veryhappy.png"
 							/>
 						</button>
 
 						<button className="mood-button">
-							<img className="mood-button" src="/public/emotions/happy.png" />
+							<img
+								style={{ transform: "scale(1.10)" }}
+								className="mood-img"
+								src="/public/emotions/happy.png"
+							/>
 						</button>
 
 						<button className="mood-button">
-							<img className="mood-button" src="/public/emotions/neutral.png" />
+							<img
+								style={{ transform: "scale(1.25)" }}
+								className="mood-img"
+								src="/public/emotions/neutralc.png"
+							/>
 						</button>
 
 						<button className="mood-button">
-							<img className="mood-button" src="/public/emotions/sad.png" />
+							<img
+								style={{ transform: "scale(1.18)" }}
+								className="mood-img"
+								src="/public/emotions/sad.png"
+							/>
 						</button>
 
 						<button className="mood-button">
-							<img className="mood-button" src="/public/emotions/verysad.png" />
+							<img
+								style={{ transform: "scale(1.3)" }}
+								className="mood-img"
+								src="/public/emotions/verysad.png"
+							/>
 						</button>
 					</div>
 				</div>

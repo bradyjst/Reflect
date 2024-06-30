@@ -51,15 +51,30 @@
 .mood-button {
 	background-color: transparent;
 	border: none;
+	border-radius: 20px;
+	outline: none;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	margin: 20px;
+	/* box-shadow: 3px 3px 10px 3px white; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.8 ease;
+}
+
+.mood-img {
+	background-color: transparent;
+	border: none;
 	outline: none;
 	width: 70px;
 	height: 70px;
-	cursor: pointer;
 }
 
 .mood-button:hover {
 	transform: scale(1.05);
-	box-sizing: 3px 3px 10px 3px white;
+	box-shadow: 3px 3px 20px 3px rgb(92, 92, 92);
 }
 
 .gotoindex-button {
