@@ -94,9 +94,18 @@ export const Container: React.FC<ContainerProps> = () => {
 		<div className="container">
 			<div style={modalAnimate} className="container-login-modal">
 				{signup ? (
-					<Signup {...{ setSignup }} />
+					<Signup {...{ setSignup, closeBook }} />
 				) : (
-					<Login {...{ openBook, setLogin, login, setIsLoggedIn, setSignup }} />
+					<Login
+						{...{
+							openBook,
+							setLogin,
+							login,
+							setIsLoggedIn,
+							setSignup,
+							closeBook,
+						}}
+					/>
 				)}
 			</div>
 			{login && <div className="modal-background"></div>}

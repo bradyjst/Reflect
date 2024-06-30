@@ -3,9 +3,10 @@ import "./Signup.css";
 
 interface SignupProps {
 	setSignup: (signupState: boolean) => void;
+	closeBook: () => void;
 }
 
-export const Signup: React.FC<SignupProps> = ({ setSignup }) => {
+export const Signup: React.FC<SignupProps> = ({ setSignup, closeBook }) => {
 	const [error, setError] = useState<string | null>(null);
 	const [success, setSuccess] = useState<string | null>(null);
 	const [info, setInfo] = useState({
@@ -50,6 +51,9 @@ export const Signup: React.FC<SignupProps> = ({ setSignup }) => {
 	return (
 		<div className="signup-container">
 			<form className="signup-form">
+				<span className="imprinted-text" style={{ marginBottom: "2em" }}>
+					Signup
+				</span>
 				<input
 					className="signup-input"
 					placeholder="username"
@@ -76,6 +80,9 @@ export const Signup: React.FC<SignupProps> = ({ setSignup }) => {
 				</button>
 				<button onClick={() => setSignup(false)} className="signup-button">
 					Trying to log in?
+				</button>
+				<button className="submit" onClick={() => closeBook()}>
+					Close
 				</button>
 			</form>
 		</div>

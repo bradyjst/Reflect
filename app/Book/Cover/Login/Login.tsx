@@ -3,6 +3,7 @@ import "./Login.css";
 
 interface LoginProps {
 	openBook: () => void;
+	closeBook: () => void;
 	setLogin: (loginState: boolean) => void;
 	setIsLoggedIn: (loggedInState: boolean) => void;
 	setSignup: (signupState: boolean) => void;
@@ -11,6 +12,7 @@ interface LoginProps {
 
 export const Login: React.FC<LoginProps> = ({
 	openBook,
+	closeBook,
 	setLogin,
 	setIsLoggedIn,
 	login,
@@ -68,6 +70,9 @@ export const Login: React.FC<LoginProps> = ({
 			style={{ display: login ? "flex" : "none" }}
 		>
 			<form className="login-form">
+				<span className="imprinted-text" style={{ marginBottom: "2em" }}>
+					Log In
+				</span>
 				<input
 					className="login-input"
 					placeholder="username"
@@ -88,6 +93,9 @@ export const Login: React.FC<LoginProps> = ({
 				</button>
 				<button onClick={() => setSignup(true)} className="signup-button">
 					Dont have an account?
+				</button>
+				<button onClick={() => closeBook()} className="submit">
+					Close
 				</button>
 			</form>
 		</div>
