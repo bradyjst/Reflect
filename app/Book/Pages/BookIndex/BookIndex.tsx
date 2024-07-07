@@ -53,17 +53,17 @@ export const BookIndex: React.FC<BookIndexProps> = ({
 						className="nutrition-button"
 						onClick={() => {
 							setIsChosen(!isChosen);
-							setPage(2);
+							setPage(3);
 						}}
 					>
-						Nutrition
+						Grocery List
 						<img className="finance-img" src="/public/nutrition.png" />
 					</button>
 					<button
 						className="exercise-button"
 						onClick={() => {
 							setIsChosen(!isChosen);
-							setPage(2);
+							setPage(4);
 						}}
 					>
 						Exercise

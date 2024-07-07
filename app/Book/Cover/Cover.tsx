@@ -11,7 +11,7 @@ export const Cover: React.FC<CoverProps> = () => {
 		<>
 			<div className="cover">
 				<div className="cover-top">
-					<h2 className="imprinted-text-h2">Reflect</h2>
+					{/* <h2 className="imprinted-text-h2">Reflect</h2> */}
 				</div>
 			</div>
 		</>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./FStats.css";
 import { Header } from "../../../PageComponents/Header/Header";
 import { BarChart } from "../../../PageComponents/BarChart/BarChart";
-import { Income, Expenses } from "../Budget/Data";
+import { Income, Expenses } from "../../../MockData/Data";
 import { PieChart } from "../../../PageComponents/PieChart/PieChart";
 
 interface FStatsProps {}

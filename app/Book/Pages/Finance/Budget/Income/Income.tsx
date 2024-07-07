@@ -27,7 +27,7 @@ export const Income: React.FC<IncomeProps> = () => {
 	};
 
 	const handleSubmit = async (event: { preventDefault: () => void }) => {
-		event.preventDefault(); // Prevent default form submission behavior
+		event.preventDefault();
 		try {
 			const response = await fetch("http://localhost:8080/submit-finance", {
 				method: "POST",
@@ -36,7 +36,7 @@ export const Income: React.FC<IncomeProps> = () => {
 				},
 				body: JSON.stringify(income),
 			});
-			const data = await response.text(); // or response.json() if response is JSON
+			const data = await response.text();
 			console.log(data);
 			alert("Income data submitted successfully!");
 		} catch (error) {
@@ -78,6 +78,7 @@ export const Income: React.FC<IncomeProps> = () => {
 				/>
 			</div>
 			<button
+				className="income-update-button"
 				onClick={(e) => {
 					handleSubmit(e);
 				}}

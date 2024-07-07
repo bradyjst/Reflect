@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Journal.css";
 import { Header } from "~/Book/PageComponents/Header/Header";
+import { LineChart } from "~/Book/PageComponents/LineChart/LineChart";
 
 interface JournalProps {
 	returnToIndex: () => void;
 }
 
 export const Journal: React.FC<JournalProps> = ({ returnToIndex }) => {
+	const [moodData, setMoodData] = useState({
+		labels: [
+			"Monday",
+			"Tuesday",
+			"Wednesday",
+			"Thursday",
+			"Friday",
+			"Saturday",
+			"Sunday",
+		],
+		datasets: [
+			{
+				label: "Weekly",
+				data: [4, 5, 3, 5, 1, 3, 4],
+				notes: ["Had a good day", "Got a raise", "Cat pissed in my cereal"],
+				borderColor: "rgba(222, 0, 0, 1)",
+				backgroundColor: "rgba(222, 222, 222, 0.2)",
+			},
+		],
+	});
+
 	return (
 		<div className="journal-container">
 			<Header title="Journal" />
@@ -56,6 +78,10 @@ export const Journal: React.FC<JournalProps> = ({ returnToIndex }) => {
 					</div>
 				</div>
 			</div>
+			<div className="journal-mood-chart">
+				<LineChart moodData={moodData} />
+			</div>
+
 			<button className="gotoindex-button" onClick={() => returnToIndex()}>
 				Go to Index
 			</button>

@@ -4,11 +4,15 @@ import { Cover } from "../Cover/Cover";
 import { BookIndex } from "../Pages/BookIndex/BookIndex";
 import { Info } from "../Pages/Info/Info";
 import { Journal } from "../Pages/Journal/Journal";
-import { JStats } from "../Pages/Journal/Stats/JStats";
+import { Tasks } from "../Pages/Journal/Tasks/Tasks";
 import { Finance } from "../Pages/Finance/Finance";
 import { FStats } from "../Pages/Finance/Stats/FStats";
 import { Login } from "../Cover/Login/Login";
 import { Signup } from "../Cover/Signup/Signup";
+import { GroceryList } from "../Pages/Grocery List/GroceryList";
+import { Exercise } from "../Pages/Exercise/Exercise";
+import { GrocerySumm } from "../Pages/Grocery List/GrocerySumm/GrocerySumm";
+import { ExerciseSumm } from "../Pages/Exercise/ExerciseSumm/ExerciseSumm";
 
 interface ContainerProps {}
 
@@ -155,6 +159,16 @@ export const Container: React.FC<ContainerProps> = () => {
 									<Finance {...{ returnToIndex }} />
 								</div>
 							)}
+							{page === 3 && (
+								<div className="page-back">
+									<GroceryList {...{ returnToIndex }} />
+								</div>
+							)}
+							{page === 4 && (
+								<div className="page-back">
+									<Exercise {...{ returnToIndex }} />
+								</div>
+							)}
 						</>
 					)}
 				</div>
@@ -165,13 +179,25 @@ export const Container: React.FC<ContainerProps> = () => {
 				)}
 				{page === 1 && (
 					<div className="page" style={PageStyle3}>
-						<JStats />
+						<Tasks />
 						<div className="page-back-cover"></div>
 					</div>
 				)}
 				{page === 2 && (
 					<div className="page" style={PageStyle3}>
 						<FStats />
+						<div className="page-back-cover"></div>
+					</div>
+				)}
+				{page === 3 && (
+					<div className="page" style={PageStyle3}>
+						<GrocerySumm />
+						<div className="page-back-cover"></div>
+					</div>
+				)}
+				{page === 4 && (
+					<div className="page" style={PageStyle3}>
+						<ExerciseSumm />
 						<div className="page-back-cover"></div>
 					</div>
 				)}

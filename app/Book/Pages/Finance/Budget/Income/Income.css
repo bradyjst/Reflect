@@ -26,3 +26,11 @@
 	flex-direction: column;
 	width: 80%;
 }
+
+.income-update-button {
+	border: none;
+	outline: none;
+	background-color: transparent;
+	font-family: "Tangerine", cursive;
+	margin-top: 1em;
+}
